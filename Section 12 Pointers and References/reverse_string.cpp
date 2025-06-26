@@ -41,8 +41,8 @@ using namespace std;
 std::string reverse_string(const std::string &str) {
     std::string reversed;
     // Write your code below this line 
-    cout << reversed; 
-    cout << str; 
+    // cout << reversed; 
+    // cout << str; 
     for(int i = str.length() - 1; i >= 0; i--)
     {
         reversed += str[i]; 
@@ -56,7 +56,7 @@ std::string reverse_string(const std::string &str) {
 int main()
 {
     string str = "Hello, World!";
-    cout << str; 
+    // cout << str; 
     reverse_string(str);
 
     return 0; 
