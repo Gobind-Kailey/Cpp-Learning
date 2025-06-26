@@ -4,7 +4,7 @@
 using namespace std;
 
 
-int *apply_all(int array1[], int size1, int array2[], int size2)
+int *apply_all(int array1[], size_t size1, int array2[], size_t size2)
 {
     int *result = new int[size1 * size2];
     int count = 0; 
