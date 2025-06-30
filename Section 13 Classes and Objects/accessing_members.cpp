@@ -47,7 +47,7 @@ int main()
     Player *enemy = new Player;
     enemy->xp = 15; 
     enemy->talk("I will distory you ");
-
+  
 
     Account frank_account;
     Account jim_account; 
