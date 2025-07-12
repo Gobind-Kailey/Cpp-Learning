@@ -8,10 +8,12 @@
 #include <iostream>
 #include "Movies.h"
 
+using namespace std; 
  /*************************************************************************
     Movies no-args constructor
 **************************************************************************/
 Movies::Movies() {
+
 }
 
 /*************************************************************************
@@ -32,7 +34,17 @@ Movies::~Movies() {
     *********************************************************************/
 bool Movies::add_movie(std::string name, std::string rating, int watched) {
     // you implement this method
-    return false;
+    for(const Movie &movie:movies)
+    {
+        if(name = movie.get_name())
+        {
+            cout << "The Movie already exists"; 
+            return false; 
+        }
+    }
+    // need to add code here which adds this new object to the collection of vectors (double check)
+    movies.push_back(Movies{name, rating, watched}); 
+    return True;
 }
 
  /*************************************************************************
@@ -48,6 +60,15 @@ bool Movies::add_movie(std::string name, std::string rating, int watched) {
     *********************************************************************/
 bool Movies::increment_watched(std::string name) {
    // you implement this method
+   for(Movie &movie:movies)
+    {
+        if(name = movie.get_name())
+        {
+            cout << "Incremented by 1"; 
+            movie.increment_watched; 
+            return true; 
+        }
+    }
    return false;
 }
 
@@ -60,4 +81,16 @@ bool Movies::increment_watched(std::string name) {
     *********************************************************************/
 void Movies::display() const {
    // You implement this method
+   if(movies.size() == 0) cout <<"Empty";
+   return; 
+   for(const Movie &movie:movies)
+    {
+        movie.display(); 
+    }
+
+    for(const auto &movie : movies)
+        {
+            movie.display(); 
+        }
+   return;
 }

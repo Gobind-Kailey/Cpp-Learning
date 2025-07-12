@@ -10,11 +10,16 @@ using namespace std;
 class Movies
 {   
     private: 
+        vector<Movie> collection;    
 
 
     Public: 
-        vector<Movie> collection;     
+        Movies();
+        ~Movies();      
+        Movies add_movie(string name, string rating, int watched);
+        Movies increament(collection[i]); 
+        Movies display(collection);
 
-
+    
 
 }
