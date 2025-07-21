@@ -14,6 +14,10 @@ public:
     
     Mystring &operator=(const Mystring &rhs); // Copy assignment
     Mystring &operator=(Mystring &&rhs);        // Move assignment
+
+    Mystring operator-() const;                     // Overloaded unary minus operator
+    Mystring operator+(const Mystring &rhs) const; // Overloaded binary plus operator
+    bool operator==(const Mystring &rhs) const; // Overloaded equality operator
     
     void display() const;
     

@@ -109,3 +109,38 @@ void Mystring::display() const {
 
 
 
+
+
+ // Equality Operator 
+ bool Mystring::operator==(const Mystring &rhs) const
+ {
+    return (strcmp(str, rhs.str) == 0)
+ }
+
+// Lowercase Operator 
+// The reason why this is const is because we are not modifying the current object
+// Notice that we are making the function const, that means we are not modifying the current object
+Mystirng Mystring::operator-() const
+{
+    char *buff = new char[strlen(str) + 1]; // Plus 1 for the null terminator
+    strcpy(buff, str);
+    for (size_t i = 0; i < strlen(buff); i++)
+        buff[i] = tolower(buff[i]);
+    Mystring temp = buff; // What is the point of createing a temporary object here?
+    // I created this because we needed somehting to temproarly hold the value 
+
+    delete [] buff; // We need to delete the buffer to avoid memory leaks
+    return temp; // Return the temporary object
+}
+
+// Concatenation Operator 
+
+Mystring Mystring::operator+(const Mystring &rhs) const{ // Why is this const? 
+     char* buff = new char[strlen(str) + strlen(rhs.str) + 1]; // Plus 1 for the null terminator
+     strcpy(buff, str);
+     strcat(buff, rhs.str); 
+     Mystring temp{buff}; // Create a temporary object to hold the value
+        delete [] buff; // We need to delete the buffer to avoid memory leaks
+    return temp; // Return the temporary object
+    
+}
