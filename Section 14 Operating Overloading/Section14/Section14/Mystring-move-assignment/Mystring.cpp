@@ -32,7 +32,7 @@ Mystring::Mystring(const Mystring &source)
 
 // Move constructor
 Mystring::Mystring( Mystring &&source) 
-    :str(source.str) {
+    :str(source.str) { // in this code shoudlnt we do this->str = source.str?
         source.str = nullptr;
         std::cout << "Move constructor used" << std::endl;
 }
@@ -59,6 +59,9 @@ Mystring &Mystring::operator=(const Mystring &rhs) {
     return *this;
 }
 
+
+
+
 // Move assignment
 Mystring &Mystring::operator=(Mystring &&rhs) {
     std::cout << "Using move assignment" << std::endl;
@@ -70,6 +73,7 @@ Mystring &Mystring::operator=(Mystring &&rhs) {
     return *this;
     
 }
+
 
 
 
