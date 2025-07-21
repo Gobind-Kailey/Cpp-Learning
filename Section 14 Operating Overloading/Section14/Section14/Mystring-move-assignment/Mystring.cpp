@@ -21,21 +21,7 @@ Mystring::Mystring(const char *s)
         }
 }
 
-// Copy constructor
-Mystring::Mystring(const Mystring &source) 
-    : str{nullptr} {
-        str = new char[strlen(source.str)+ 1];
-        strcpy(str, source.str);
-        std::cout << "Copy constructor used" << std::endl;
 
-}
-
-// Move constructor
-Mystring::Mystring( Mystring &&source) 
-    :str(source.str) { // in this code shoudlnt we do this->str = source.str?
-        source.str = nullptr;
-        std::cout << "Move constructor used" << std::endl;
-}
 
  // Destructor
 Mystring::~Mystring() {
@@ -47,7 +33,20 @@ Mystring::~Mystring() {
     delete [] str;
 }
 
- // Copy assignment
+// Copy constructor
+// Allocating new space on the heap and then copying the source string into it
+// This is necessary to avoid shallow copy issues
+// We are in need of creating a new object here
+Mystring::Mystring(const Mystring &source) 
+    : str{nullptr} {
+        str = new char[strlen(source.str)+ 1];
+        strcpy(str, source.str);
+        std::cout << "Copy constructor used" << std::endl;
+
+}
+
+
+ // Copy assignment -- No need to create new object here, we are just assigning values
 Mystring &Mystring::operator=(const Mystring &rhs) {
     std::cout << "Using copy assignment" << std::endl;
 
@@ -59,7 +58,12 @@ Mystring &Mystring::operator=(const Mystring &rhs) {
     return *this;
 }
 
-
+// Move constructor
+Mystring::Mystring( Mystring &&source) 
+    :str(source.str) { // in this code shoudlnt we do this->str = source.str?
+        source.str = nullptr;
+        std::cout << "Move constructor used" << std::endl;
+}
 
 
 // Move assignment
